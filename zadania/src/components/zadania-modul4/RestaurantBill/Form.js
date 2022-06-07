@@ -69,24 +69,29 @@ const Button = styled.button`
 
 const Form = () => {
 
-   const [enteredSum,setEnteredSum] = useState('');
+   const [enteredPrice,setEnteredPrice] = useState(0);
    const [selectedTip, setSelectedTip] = useState(0);
    const [isSended, setIsSended] = useState(false);
    const tax = 23;
 
-  const inputChangeHandler = (event) => {
-    setEnteredSum(event.target.value);
+  const inputChangeHandler = (e) => {
+    //setEnteredPrice(e.target.value);
+    setEnteredPrice((v) => (e.target.validity.valid ? e.target.value : v))
   };
 
   const selectChangeHandler = (event) => {
     setSelectedTip(event.target.value);
   };
 
-  const bill = (selectedTip !== 0 || '') ? enteredSum * ((selectedTip / 100) + 1) * ((tax / 100) + 1) : enteredSum * ((tax / 100) + 1);
+  const calculateBill = ( tip, price) => {
+    const bill = (tip !== 0 || '') ? price * ((tip / 100) + 1) * ((tax / 100) + 1) : price * ((tax / 100) + 1);
+    return bill;
+  };
+
 
   const handleOnSubmit = (e) => {
-    e.preventDefault();
-    setIsSended(true);
+      e.preventDefault();
+      setIsSended(true);
   };
 
   return (
@@ -98,6 +103,7 @@ const Form = () => {
             type="number"
             min="0.01"
             step="0.01"
+            pattern="[0-9]*"
             onChange={inputChangeHandler}
           />
           <FormLabel>
@@ -114,7 +120,7 @@ const Form = () => {
             <Button type="submit">Przelicz</Button>
           </Actions>
         </FormContent>}
-        {isSended === true && <div>Do zpałaty: {bill.toFixed(2)}</div>}
+        {isSended === true && <div>Do zpałaty: {calculateBill(selectedTip, enteredPrice).toFixed(2)}</div>}
       </FormWrapper>
     </>
   );

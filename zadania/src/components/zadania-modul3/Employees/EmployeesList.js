@@ -25,8 +25,9 @@ const  Details = styled.div`
 `;
 
 const Para = styled.p`
-  font-size: 22px;
+  font-size: 18px;
   text-align: left;
+  margin: 0;
 `;
 
 const EmployeesList = ({name, age, salary, position}) => {
