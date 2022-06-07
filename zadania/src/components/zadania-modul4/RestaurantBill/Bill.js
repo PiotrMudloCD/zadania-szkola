@@ -1,7 +1,7 @@
 import React from "react";
 import Form from "./Form";
 
-const RestaurantBill = () => {
+const Bill = () => {
   return (
     <>
     <Form />
@@ -9,4 +9,4 @@ const RestaurantBill = () => {
   )
 };
 
-export default RestaurantBill;
+export default Bill;

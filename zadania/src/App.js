@@ -6,7 +6,7 @@ import { Button, Input, Textarea } from "./components/zadania-modul3";
 import { Card } from "./components/zadania-modul3";
 import { Menu } from "./components/zadania-modul3";
 import { Employees } from "./components/zadania-modul3";
-import RestaurantBill from "./components/zadania-modul4/RestaurantBill/RestaurantBill";
+import { Bill } from  "./components/zadania-modul4";
 
 function App() {
   return (
@@ -22,7 +22,7 @@ function App() {
         showMore
       />
       <Employees/>
-      <RestaurantBill />
+      <Bill />
     </div>
   );
 }
