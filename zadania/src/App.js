@@ -2,12 +2,11 @@ import React from "react";
 import { colors } from "./components/zadania-modul3/colors";
 
 import "./App.css";
-import Button from "./components/zadania-modul3/Form/Button";
-import Input from "./components/zadania-modul3/Form/Input";
-import Textarea from "./components/zadania-modul3/Form/Textarea";
-import Card from "./components/zadania-modul3/Card";
-import Menu from "./components/zadania-modul3/Menu/Menu";
-import Employees from "./components/zadania-modul3/Employees/Employees";
+import { Button, Input, Textarea } from "./components/zadania-modul3";
+import { Card } from "./components/zadania-modul3";
+import { Menu } from "./components/zadania-modul3";
+import { Employees } from "./components/zadania-modul3";
+import RestaurantBill from "./components/zadania-modul4/RestaurantBill/RestaurantBill";
 
 function App() {
   return (
@@ -23,6 +22,7 @@ function App() {
         showMore
       />
       <Employees/>
+      <RestaurantBill />
     </div>
   );
 }
